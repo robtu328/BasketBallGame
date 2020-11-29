@@ -40,7 +40,7 @@ class XMLImage:
 
 
 img=0
-xmlfile=ET.parse("../2v2labeldata/2v2xml/IMG_6098 003.xml")
+xmlfile=ET.parse("../2v2Label/IMG_6098 003.xml")
 xmlImage=XMLImage(xmlfile, img, "./")
 
 

@@ -63,7 +63,11 @@ def train(train_loader, model, criterion, optimizer, epoch, args):
             target = target.cuda(cfg.gpu, non_blocking=True)  
             
         #Forward propgration
+        if(images.size()[0] < 64):
+           break
         images=images.expand(64, 3, 28,28)
+        print(i, "image.size =", images.size())
+    
         output = model(images)
         loss = criterion(output, target)
         acc1, acc5 = accuracy(output, target, topk=(1, 5))
@@ -93,7 +97,13 @@ def validate(val_loader, model, criterion, args):
                 target = target.cuda(cfg.gpu, non_blocking=True)  
             
             #Forward propgration
+            if(images.size()[0]< 64):
+               break
+
+            images=images.expand(64, 3, 28,28)
+            print(i, "image.size =", images.size())
             output = model(images)
+            
             loss = criterion(output, target)
             acc1, acc5 = accuracy(output, target, topk=(1, 5))
             losses.update(loss.item(), images.size(0))
@@ -151,8 +161,8 @@ if __name__ == '__main__':
        train(train_loader, model, criterion, optimizer, epoch, args)
      
        # evaluate on validation set
-       acc1, acc5 = validate(val_loader, model, criterion, args)   
-
+       acc1, acc5 = validate(valid_loader, model, criterion, args)   
+       print(' * Acc@1 {top1.avg:.3f} Acc@5 {top5.avg:.3f}'.format(top1=top1, top5=top5))
     
     print ("Hello world2")
 

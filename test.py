@@ -117,7 +117,7 @@ def validate(val_loader, model, criterion, args):
 
     return top1.avg, top5.avg
 
-
+#For version control
 if __name__ == '__main__':
     
 
@@ -165,4 +165,10 @@ if __name__ == '__main__':
        print(' * Acc@1 {top1.avg:.3f} Acc@5 {top5.avg:.3f}'.format(top1=top1, top5=top5))
     
     print ("Hello world2")
+
+
+
+
+
+
 

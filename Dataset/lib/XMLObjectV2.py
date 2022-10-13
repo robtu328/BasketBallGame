@@ -133,8 +133,8 @@ print(args)
 print(args.imgPath, args.xmlPath, args.datapath)
 
               
-#retrieve(args.imgPath, args.xmlPath, args.datapath)
-drawBBox(args.imgPath, args.xmlPath, args.datapath)
+retrieve(args.imgPath, args.xmlPath, args.datapath)
+#drawBBox(args.imgPath, args.xmlPath, args.datapath)
 
 
 #img=0
